@@ -21,13 +21,13 @@ const CharacterItem = (props) => {
             <Collapse isOpen={isOpen}>
                 <Card className="mt-1">
                     <CardBody>
-                        <CharInfo label="Cor do cabelo:" data={props.chararacter ? props.chararacter.hair_color : ''} />
-                        <CharInfo label="Altura:" data={props.chararacter ? `${props.chararacter.height}cm` : ''} />
-                        <CharInfo label="Massa:" data={props.chararacter ? `${props.chararacter.mass}g` : ''} />
-                        <CharInfo label="Cor da pele:" data={props.chararacter ? props.chararacter.skin_color : ''} />
-                        <CharInfo label="Gênero:" data={props.chararacter ? props.chararacter.gender : ''} />
-                        <CharInfo label="Cor dos olhos:" data={props.chararacter ? props.chararacter.eye_color : ''} />
-                        <CharInfo label="Ano em que nasceu:" data={props.chararacter ? props.chararacter.birth_year : ''} />
+                        <CharInfo label="Cor do cabelo:" data={props.character ? props.character.hair_color : ''} />
+                        <CharInfo label="Altura:" data={props.character ? `${props.character.height}cm` : ''} />
+                        <CharInfo label="Massa:" data={props.character ? `${props.character.mass}g` : ''} />
+                        <CharInfo label="Cor da pele:" data={props.character ? props.character.skin_color : ''} />
+                        <CharInfo label="Gênero:" data={props.character ? props.character.gender : ''} />
+                        <CharInfo label="Cor dos olhos:" data={props.character ? props.character.eye_color : ''} />
+                        <CharInfo label="Ano em que nasceu:" data={props.character ? props.character.birth_year : ''} />
                     </CardBody>
                 </Card>
             </Collapse>
