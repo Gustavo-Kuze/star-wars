@@ -1,8 +1,8 @@
 import React from 'react'
-import { Pagination as ReactstrapPagination, PaginationItem, PaginationLink, Button } from "reactstrap";
+import { Pagination as ReactstrapPagination, Button } from "reactstrap";
 import { connect } from 'react-redux'
 import { bindActionCreators } from "redux"
-import { setNextUrl, setPreviousUrl, loadCharacters } from "../../redux/core/actions/charactersActions";
+import { loadCharacters } from "../../redux/core/actions/charactersActions";
 import { extractPathFromUrl } from "../../services/api";
 
 const Pagination = (props) => {
@@ -35,7 +35,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    setNextUrl, setPreviousUrl, loadCharacters
+    loadCharacters
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pagination)

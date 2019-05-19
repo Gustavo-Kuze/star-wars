@@ -18,10 +18,6 @@ export default (state = STATE, action) => {
             }
         case types.IS_LOADING:
             return { ...state, isLoading: true }
-        case types.SET_NEXT:
-            return { ...state, nextUrl: action.payload }
-        case types.SET_PREVIOUS:
-            return { ...state, previousUrl: action.payload }
         default:
             return state
     }

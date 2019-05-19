@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import CharacterItem from './CharacterItem'
-import { setIsLoadingChars, loadCharacters, setNextUrl, setPreviousUrl } from '../../redux/core/actions/charactersActions'
+import { setIsLoadingChars, loadCharacters } from '../../redux/core/actions/charactersActions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from "redux"
 
@@ -13,7 +13,8 @@ const Characters = (props) => {
     return (
         <div className="mb-5">
             {
-                props.characters ? props.characters.map((c, i) => <CharacterItem key={`${c.name}`} character={c} />) : ''
+                props.characters ? props.characters.map((c, i) =>
+                    <CharacterItem key={`${c.name}`} character={c} />) : ''
             }
         </div>
     )
@@ -27,7 +28,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    setIsLoadingChars, loadCharacters, setNextUrl, setPreviousUrl
+    setIsLoadingChars, loadCharacters
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Characters)
