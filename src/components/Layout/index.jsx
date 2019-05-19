@@ -19,6 +19,15 @@ const Layout = (props) => {
       <main>
         {props.children}
       </main>
+      <footer className="fixed-bottom">
+        <Container fluid className="bg-dark py-1">
+          <Row>
+            <Col>
+              <p className="text-center">Criado por <a className="text-warning" href="https://gustavokuze.com" target="_blank" rel="noopener noreferrer">Gustavo kuze</a></p>
+            </Col>
+          </Row>
+        </Container>
+      </footer>
     </Container>
   )
 }

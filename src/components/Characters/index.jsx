@@ -1,14 +1,34 @@
-import React, { useState } from 'react'
-import { Container, Col, Row, Collapse } from "reactstrap";
+import React, { useEffect } from 'react'
 import CharacterItem from './CharacterItem'
+import { setIsLoadingChars, loadCharacters } from '../../redux/core/actions/charactersActions'
+import { connect } from 'react-redux'
+import { bindActionCreators } from "redux"
 
-const Characters = () => {
+const Characters = (props) => {
+
+    useEffect(() => {
+        props.loadCharacters('people')
+    }, [])
 
     return (
-        <div>
-            
+        <div className="mb-5">
+            {
+                props.characters ? props.characters.map((c, i) =>
+                    <CharacterItem key={`${c.name}`} character={c} />) : ''
+            }
         </div>
     )
 }
 
-export default Characters
+const mapStateToProps = state => ({
+    characters: state.characters.characters.results,
+    isLoading: state.characters.isLoading,
+    nextUrl: state.characters.nextUrl,
+    previousUrl: state.characters.previousUrl,
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    setIsLoadingChars, loadCharacters
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Characters)
