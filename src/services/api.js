@@ -6,6 +6,15 @@ const swapi = async (path, params) => {
     return json
 }
 
+const extractPathFromUrl = url => {
+    let rgx = /(https?:\/\/\w+\.\w+\/api\/)/g
+    let extractedPath = url
+    if(rgx.test(url)){
+        extractedPath = url.replace(rgx, '')
+    }
+    return extractedPath
+}
+
 export {
-    swapi
+    swapi, extractPathFromUrl
 }

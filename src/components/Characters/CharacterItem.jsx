@@ -23,7 +23,7 @@ const CharacterItem = (props) => {
                     <CardBody>
                         <CharInfo label="Cor do cabelo:" data={props.character ? props.character.hair_color : ''} />
                         <CharInfo label="Altura:" data={props.character ? `${props.character.height}cm` : ''} />
-                        <CharInfo label="Massa:" data={props.character ? `${props.character.mass}g` : ''} />
+                        <CharInfo label="Massa:" data={props.character ? `${props.character.mass}kg` : ''} />
                         <CharInfo label="Cor da pele:" data={props.character ? props.character.skin_color : ''} />
                         <CharInfo label="Gênero:" data={props.character ? props.character.gender : ''} />
                         <CharInfo label="Cor dos olhos:" data={props.character ? props.character.eye_color : ''} />

@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { Container, Col, Row, Collapse } from "reactstrap";
+import React, { useEffect } from 'react'
 import CharacterItem from './CharacterItem'
-import { setIsLoadingChars, loadCharacters } from '../../redux/core/actions/charactersActions'
+import { setIsLoadingChars, loadCharacters, setNextUrl, setPreviousUrl } from '../../redux/core/actions/charactersActions'
 import { connect } from 'react-redux'
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from "redux"
 
 const Characters = (props) => {
 
     useEffect(() => {
         props.loadCharacters('people')
-    }, [props])
+    }, [])
 
     return (
         <div className="mb-5">
@@ -22,11 +21,13 @@ const Characters = (props) => {
 
 const mapStateToProps = state => ({
     characters: state.characters.characters.results,
-    isLoading: state.characters.isLoading
+    isLoading: state.characters.isLoading,
+    nextUrl: state.characters.nextUrl,
+    previousUrl: state.characters.previousUrl,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    setIsLoadingChars, loadCharacters
+    setIsLoadingChars, loadCharacters, setNextUrl, setPreviousUrl
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Characters)
