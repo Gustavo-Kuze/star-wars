@@ -1,10 +1,7 @@
 import types from '../actions/types/charactersTypes'
 
 const STATE = {
-    characters: {},
-    isLoading: false,
-    nextUrl: '',
-    previousUrl: '',
+    characters: {}
 }
 
 export default (state = STATE, action) => {
@@ -13,8 +10,8 @@ export default (state = STATE, action) => {
             return {
                 characters: action.payload,
                 isLoading: false,
-                nextUrl: action.payload.next ? action.payload.next : '',
-                previousUrl: action.payload.previous ? action.payload.previous : '',
+                nextUrl: action.payload.next,
+                previousUrl: action.payload.previous,
             }
         case types.IS_LOADING:
             return { ...state, isLoading: true }
